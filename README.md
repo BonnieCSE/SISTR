@@ -7,7 +7,7 @@
 
 # Pipline
 1. Preprocessing:  
-Simulate allele frequencies using mutation model, selection model, forward simulation algorithm and generate lookup tables used later in SISTR.   
+Simulate allele frequencies using mutation model, selection model, and forward simulation algorithm to generate lookup tables used later in SISTR.   
 See `simulations/`  
 
 2. SISTR:  
