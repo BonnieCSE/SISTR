@@ -1,7 +1,7 @@
 # Selection Inference on Short Tandem Repeats (SISTR): A method to measure negative selection at short tandem repeats
 
 # Folder Contents
-* `helper_functions/`: Contains helper functions used in simulations and SISTR
+* `helper_functions/`: Contains helper functions used in `simulations/` and `SISTR/` scripts
 * `simulations/`: Contains scripts to generate lookup tables
 * `sistr/`: Contains scripts to run SISTR
 
