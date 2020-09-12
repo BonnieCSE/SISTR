@@ -1,7 +1,7 @@
 # Usage of script to run SISTR
 
 ## Note: Before running SISTR, lookup tables must be generated first. 
-Custom lookup tables can be created by the user (see `simulations/`) or the user may use the available lookup tables found here (used in Mitra, et al. 2020): https://drive.google.com/drive/folders/1g70y6z6sU5DVpF6ZGzosNDVFFoXxnqmn?usp=sharing
+Custom lookup tables can be created by the user (see `simulations/`) or the user may use the available lookup tables found here (used in Mitra, et. al. 2020): https://drive.google.com/drive/folders/1g70y6z6sU5DVpF6ZGzosNDVFFoXxnqmn?usp=sharing
 
 ## Command to run SISTR
 python SISTR_v1.py constant_het denom_het constant_common denom_common eps_bins inFile use_het use_common use_bins num_bins abc_model lrt_model LRT_num_sims 
@@ -21,7 +21,7 @@ abc_model: folder name for ABC lookup tables
 lrt_model: folder name for LRT lookup tables  
 LRT_num_sims: number of simulations used for LRT in preprocessing step  
 
-### Example command (with parameters used in Mitra, et al. 2020):
+### Example command (with parameters used in Mitra, et. al. 2020):
 python SISTR_v1.py 0.005 3 1 4 0.3 allele_freqs_example.txt y n y 5 eurodem_prior2 eurodem_0810 2000 
 
 ### Input file specifications:
