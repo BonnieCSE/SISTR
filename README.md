@@ -6,7 +6,8 @@
 * `sistr/`: Contains scripts to run SISTR
 
 # Pipline
-1. Preprocessing step: Simulate allele frequencies using mutation model, selection model, forward simulation algorithm and generate lookup tables used later in SISTR.   
+1. Preprocessing:  
+Simulate allele frequencies using mutation model, selection model, forward simulation algorithm and generate lookup tables used later in SISTR.   
 See `simulations/`  
 
 2. SISTR:  
