@@ -1,0 +1,3 @@
+chrom	start	end	total	period	optimal_ru	motif	coding	intron	UTR5	UTR3	promoter5kb	intergenic	tss_gene	het	common	bins	ABC_s_median	ABC_s_95%_CI	Num_s_accepted_(max_10000)	Likelihood_0	Likelihood_s	LR	LogLR	LRT_p_value
+1	10000	10027	6500	4	7	AAGG	0.0	0.0	0.0	0.0	0.0	1.0	ABC	0.5680511	4	0.0769,0.1538,0.6154,0.1538,0.0	0	(0 , 0.0008)	148	0.026	0.024	1.0833333	-0.1600854	1.0
+9	20000	20025	5000	2	14	AT	0.0	0.0	0.0	0.0	0.0	1.0	DEF	0.545	4	0.05,0.3,0.6,0.0,0.05	0.00021	(0 , 0.00174)	180	0.012	0.0565	0.2123894	3.098668	0.0391782

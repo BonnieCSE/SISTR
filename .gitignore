@@ -2,3 +2,6 @@
 __pycache__
 *~
 lookup_tables/
+ssc_allele_freqs_test.txt
+ssc_test_results.txt
+nohup.out
