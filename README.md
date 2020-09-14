@@ -26,10 +26,11 @@ SISTR uses Python3 and the following libraries: Python Standard Library, SciPy, 
 
    Example command to run SISTR:  
    ```
-   python SISTR_v1.py constant_het denom_het constant_common denom_common eps_bins inFile use_het use_common use_bins num_bins abc_model lrt_model LRT_num_sims 
+   python SISTR_v1.py \
+     --inFile allele_freqs_test.txt \
+     --outFile test_results.txt 
    ```
 
 # Folder Contents
-* `helper_functions/`: Contains helper functions used in scripts in `simulations/` and `SISTR/`
 * `simulations/`: Contains scripts to generate lookup tables
 * `sistr/`: Contains scripts to run SISTR
