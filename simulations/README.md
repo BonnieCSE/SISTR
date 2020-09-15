@@ -69,7 +69,7 @@ Optional parameters (default values are those used in Mitra, et. al. 2020):
 * __`--file-name-custom <string>`__ customize ending of file name (default: no extra characters in file name)  
 Note: The flag __`--file-name-custom _zero`__ is required when generating a lookup table with only s = 0
 
-### Output files:
+### Output file format:
 The output will be a tab delimited file with 2 columns: s (s value used), freqs (num-sims allele frequencies seqparated by semicolons)  
 Each row is a separate s value.  
 The file is named in the format \[per\]_\[opt-allele\]\[file-name-custom\]_freqs.txt
