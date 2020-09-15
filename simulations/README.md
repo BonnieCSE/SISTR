@@ -30,7 +30,7 @@ Optional parameters (default values are those used in Mitra, et. al. 2020):
 ### Output file format:
 The output file will be a tab delimited file with 2 columns: s (s value used), freqs (corresponding allele frequencies)  
 Each row is a separate simulation.  
-The file is named in the format \[per\]_\[opt-allele\].txt  
+The file is named in the format \[per\]_\[opt-allele\]\[file-name-custom\].txt  
 
 ## Command to generate a LRT lookup table  
 Note: If you choose to generate your own lookup tables, you must generate 46 LRT lookup tables, two for each period/optimal allele combination below. One lookup table contains a variety of s values from 0 to 1 inclusive, while the other table only contains information regarding s = 0.  
