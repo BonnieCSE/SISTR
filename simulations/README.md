@@ -4,7 +4,7 @@
 https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing
 
 ## Command to generate ABC lookup table (generate one ABC lookup table for each period/optimal allele combination)
-Note: If you choose to generate your own lookup tables, you must generate 23 ABC lookup tables, one for each period/optimal allele combination below  
+Note: If you choose to generate your own lookup tables, you must generate 23 ABC lookup tables, one for each period/optimal allele combination below.    
 List of optimal alleles per period to simulate: per 2, opt 11-20; per 3, opt 5-13; per 4, opt 7-10  
 
 Example command:
@@ -30,10 +30,10 @@ Optional parameters (default values are those used in Mitra, et. al. 2020):
 ### Output file format:
 The output file will be a tab delimited file with 2 columns: s (s value used), freqs (corresponding allele frequencies)  
 Each row is a separate simulation.  
-The file is named in the format <per>_<opt-allele>.txt  
+The file is named in the format per_opt-allele.txt  
 
 ## Command to generate LRT lookup table (generate one LRT lookup table for each period/optimal allele combination)
-Note: If you want to generate your own lookup tables, you must generate 46 LRT lookup tables, two for each period/optimal allele combination below. One lookup table contains a wide range of s values from 0 to 1 inclusive, and one lookup table contains information from simulations using s = 0.
+Note: If you want to generate your own lookup tables, you must generate 46 LRT lookup tables, two for each period/optimal allele combination below. One lookup table contains a variety of s values from 0 to 1 inclusive, and one lookup table contains information from simulations using s = 0.  
 List of optimal alleles per period to simulate: per 2, opt 11-20; per 3, opt 5-13; per 4, opt 7-10  
 
 Example command for lookup table with a variety of s values:
@@ -46,7 +46,7 @@ python LRT_lookup.py \
      --num-sims 2  
 ```
 
-Example command for lookup table with only s = 0 (Note: In this case, --s-vals must be the string 0,0 and --file-name-addition must be the string _zero):
+Example command for lookup table with only s = 0 (Note: In this case, `--s-vals` must be the string `0,0` and `--file-name-addition` must be the string `_zero`):
 ```
 python LRT_lookup.py \
      --out-folder ./../sistr_resources_test/lrt_lookup/ \
@@ -65,10 +65,10 @@ Required parameters:
 
 Optional parameters (default values are those used in Mitra, et. al. 2020):
 * `--num_sims <int>` number of simulations per s value (default: 2000)
-* `--file-name-addition <string>` customize ending of file name (default: no extra characters in file name)
+* `--file-name-addition <string>` customize ending of file name (default: no extra characters in file name)  
 Note: `--file-name-addition _zero` is required when generating lookup table for s = 0
 
 ### Output files:
 The output will be a tab delimited file with 2 columns: s (s value used), freqs (num-sims allele frequencies seqparated by semicolons)  
 Each row is a separate s value.  
-The file is named in the format <per>_<opt-allele><file-name-addition>_freqs.txt
+The file is named in the format per_opt-allelefile-name-addition_freqs.txt

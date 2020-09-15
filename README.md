@@ -24,7 +24,7 @@ SISTR uses Python3 and the following libraries in addition to the Python Standar
  
    Note: Alternatively, you can skip this step and use lookup tables already generated for community use: https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing
 
-2. The second step is to run SISTR, which requires (1) allele frequency data and (2) precomputed lookup tables generated in step 1. It outputs a posterior estimate of the selection coefficient at each locus. 
+2. The second step is to run SISTR, which requires (1) allele frequency data and (2) precomputed lookup tables generated in step 1 as input. It outputs a posterior estimate of the selection coefficient at each locus. 
 
    See `sistr/` for further details.
 
