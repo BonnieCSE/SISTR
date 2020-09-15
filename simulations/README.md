@@ -1,6 +1,6 @@
 # Running simulations to generate lookup tables
 
-**Note: Due to the compute time required to generate the lookup tables, we recommend downloading the tables used in Mitra et. al. 2020, which are available for community use and can be found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing).**
+**Note: Due to the compute time required to generate the lookup tables, we recommend downloading the tables used in Mitra et. al. 2020, which are available for community use and can be found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing).** However, if you would like to create your own custom lookup tables, see instructions below.
 
 ## Command to generate an ABC lookup table  
 Note: If you choose to generate your own lookup tables, you must generate 23 ABC lookup tables, one for each period/optimal allele combination below.    
