@@ -1,7 +1,7 @@
 # Running SISTR
 
 ## Note: Before running SISTR, lookup tables must first be generated. 
-You may either create your own custom lookup tables (see `simulations/` for further details) or use the available lookup tables found here (used in Mitra, et. al. 2020): https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing
+You may either create your own custom lookup tables (see `simulations/` for further details) or use the available lookup tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) (used in Mitra, et. al. 2020)  
 
 If you wish to use these pre-generated lookup tables, we recommend that you download the entire folder `sistr_resources` and save it at the same directory level as the `simulations` and `sistr` folders.  
 
