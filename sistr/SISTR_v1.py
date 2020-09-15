@@ -18,8 +18,8 @@ def main():
     parser.add_argument("--eps-bins", type=float, default=0.3)
     parser.add_argument("--num-bins", type=int, default=5)
     parser.add_argument("--lrt-num-sims", type=int, default=2000)
-    parser.add_argument("--abc-lookup-folder", default = './../sistr_resources/abc_lookup/')
-    parser.add_argument("--lrt-lookup-folder", default = './../sistr_resources/lrt_lookup/')
+    parser.add_argument("--abc-lookup-folder", default = 'sistr_resources/abc_lookup/')
+    parser.add_argument("--lrt-lookup-folder", default = 'sistr_resources/lrt_lookup/')
     parser.add_argument("--in-file")
     parser.add_argument("--out-file")
     

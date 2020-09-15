@@ -5,16 +5,23 @@ It takes allele frequency data (per-locus frequencies of each allele length) as 
 
 For questions on SISTR usage or setup, please contact Bonnie Huang (bbhuang@ucsd.edu)  
 
-# Dependencies
+# Installation
 SISTR uses Python3 and the following libraries in addition to the Python Standard Library: SciPy, NumPy
 
+You can obtain SISTR by cloning the Github repository:
+
+```
+git clone https://github.com/BonnieCSE/SISTR
+cd SISTR
+```
+
 # Pipeline
-1. The first step is a preprocessing step which involves simulating allele frequencies to generate lookup tables used later in step 2. **Due to the compute time required to generate the lookup tables, we recommend using the following precomputed tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it in the same directory level as the `simulations/` and `sistr/` folders.** However, if you wish to create your own custom lookup tables, see `simulations/` for further details. 
+1. The first step is a preprocessing step which involves simulating allele frequencies to generate lookup tables used later in step 2. **Due to the compute time required to generate the lookup tables, we recommend using the following precomputed tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it in the same directory where you are running SISTR.** However, if you wish to create your own custom lookup tables, see `simulations/` for further details. 
    
    Example command to run simulations to generate a custom ABC lookup table:    
    ```
-   python ABC_lookup.py \
-     --out-folder ./../sistr_resources_test/abc_lookup/ \
+   python ./simulations/ABC_lookup.py \
+     --out-folder sistr_resources_test/abc_lookup/ \
      --per 3 \
      --opt-allele 5 \
      --num-sims 5
@@ -26,8 +33,8 @@ SISTR uses Python3 and the following libraries in addition to the Python Standar
 
    Example command to run SISTR:  
    ```
-   python SISTR_v1.py \
-     --in-file allele_freqs_test.txt \
+   python sistr/SISTR_v1.py \
+     --in-file sistr/allele_freqs_test.txt \
      --out-file test_results.txt 
    ```
 

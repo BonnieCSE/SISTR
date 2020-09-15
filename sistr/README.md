@@ -1,7 +1,7 @@
 # Running SISTR
 
 ## Note: Before running SISTR, lookup tables must first be generated. 
-**We recommend using the available lookup tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it at the same directory level as the `simulations/` and `sistr/` folders.** If you wish to create your own custom lookup tables, see `simulations/` for further details. 
+**We recommend using the available lookup tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it at the same directory where you are running SISTR.** If you wish to create your own custom lookup tables, see `simulations/` for further details. 
 
 ## SISTR Usage
 Example command:
@@ -21,8 +21,8 @@ Optional parameters (default values are those used in Mitra, et. al. 2020):
 * __`--eps-bins <float>`__ error tolerance for bins summary statistic (default value: 0.3)
 * __`--num-bins <int>`__ number of bins to use (default value: 5)
 * __`--lrt-num-sims <int>`__ number of simulations used to generate LRT lookup tables (default value: 2000) 
-* __`--abc-lookup-folder <string>`__ path to folder containing ABC lookup tables (default path: `./../sistr_resources/abc_lookup/`)
-* __`--lrt-lookup-folder <string>`__ path to folder containing LRT lookup tables (default path: `./../sistr_resources/lrt_lookup/`)
+* __`--abc-lookup-folder <string>`__ path to folder containing ABC lookup tables (default path: `sistr_resources/abc_lookup/`)
+* __`--lrt-lookup-folder <string>`__ path to folder containing LRT lookup tables (default path: `sistr_resources/lrt_lookup/`)
 
 ## Input file format:
 The input file should be a tab delimited file with 7 columns: chrom, start, end, allele_freqs, total, period, motif  
