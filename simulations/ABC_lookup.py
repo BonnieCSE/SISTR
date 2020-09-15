@@ -16,14 +16,14 @@ def main():
     parser.add_argument("--num-sims", type=int, default=10000)
     parser.add_argument("--a-param", type=float, default=0.0881)
     parser.add_argument("--b-param", type=float, default=0.2541)
-    parser.add_argument("--file-name-addition", default='')
+    parser.add_argument("--file-name-custom", default='')
     parser.add_argument("--use-var-gens", default = 'n')
    
     args = parser.parse_args()
     
     # Name and open output files
     
-    outFile = args.out_folder + str(args.per) + '_' + str(args.opt_allele) + str(args.file_name_addition) + '.txt'
+    outFile = args.out_folder + str(args.per) + '_' + str(args.opt_allele) + str(args.file_name_custom) + '.txt'
     
     results = open(outFile, "w")
     

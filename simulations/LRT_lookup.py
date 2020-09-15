@@ -15,7 +15,7 @@ def main():
     parser.add_argument("--opt-allele", type=int)
     parser.add_argument("--num-sims", type=int, default=2000)
     parser.add_argument("--s-vals")
-    parser.add_argument("--file-name-addition", default='')
+    parser.add_argument("--file-name-custom", default='')
     parser.add_argument("--use-var-gens", default = 'n')
     
     args = parser.parse_args()
@@ -24,7 +24,7 @@ def main():
     
     # Name and open output files
     
-    outFile = args.out_folder + str(args.per) + '_' + str(args.opt_allele) + str(args.file_name_addition) + '_freqs.txt'
+    outFile = args.out_folder + str(args.per) + '_' + str(args.opt_allele) + str(args.file_name_custom) + '_freqs.txt'
     
     results = open(outFile, "w")
     
