@@ -14,17 +14,17 @@ python SISTR_v1.py \
 ```
 
 Required parameters:  
-* `--in-file <string>` name of input file containing allele frequency data (see below for format specifications)  
-* `--out-file <string>` name of output file 
+* __`--in-file <string>`__ name of input file containing allele frequency data (see below for format specifications)  
+* __`--out-file <string>`__ name of output file 
 
 Optional parameters (default values are those used in Mitra, et. al. 2020):
-* `--eps-het-numerator <float>` constant in numerator for heterozygosity error tolerance formula (default value: 0.005) 
-* `--eps-het-denominator <int>` constant in denominator for heterozygosity error tolerance formula (default value: 3)
-* `--eps-bins <float>` error tolerance for bins summary statistic (default value: 0.3)
-* `--num-bins <int>` number of bins to use (default value: 5)
-* `--lrt-num-sims <int>`: number of simulations used to generate LRT lookup tables (default value: 2000) 
-* `--abc-lookup-folder <string>` path to folder containing ABC lookup tables (default path: `./../sistr_resources/abc_lookup/`)
-* `--lrt-lookup-folder <string>` path to folder containing LRT lookup tables (default path: `./../sistr_resources/lrt_lookup/`)
+* __`--eps-het-numerator <float>`__ constant in numerator for heterozygosity error tolerance formula (default value: 0.005) 
+* __`--eps-het-denominator <int>`__ constant in denominator for heterozygosity error tolerance formula (default value: 3)
+* __`--eps-bins <float>`__ error tolerance for bins summary statistic (default value: 0.3)
+* __`--num-bins <int>`__ number of bins to use (default value: 5)
+* __`--lrt-num-sims <int>`__ number of simulations used to generate LRT lookup tables (default value: 2000) 
+* __`--abc-lookup-folder <string>`__ path to folder containing ABC lookup tables (default path: `./../sistr_resources/abc_lookup/`)
+* __`--lrt-lookup-folder <string>`__ path to folder containing LRT lookup tables (default path: `./../sistr_resources/lrt_lookup/`)
 
 ## Input file format:
 The input file should be a tab delimited file with 7 columns: chrom, start, end, allele_freqs, total, period, motif  

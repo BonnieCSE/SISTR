@@ -17,15 +17,15 @@ python ABC_lookup.py \
 ```
 
 Required parameters:  
-* __`--out-folder <string>`__: path to folder to which to output lookup table
-* __`--per <int>`__: period (repeat unit length) -> Note: SISTR currently only handles TRs with repeat unit lengths 2-4 bp  
-* __`--opt-allele <int>`__: optimal allele   
+* __`--out-folder <string>`__ path to folder to which to output lookup table
+* __`--per <int>`__ period (repeat unit length) -> Note: SISTR currently only handles TRs with repeat unit lengths 2-4 bp  
+* __`--opt-allele <int>`__ optimal allele   
 
 Optional parameters (default values are those used in Mitra, et. al. 2020):
-* __`--num_sims <int>`__: number of simulations  (default value: 10000)
-* __`--a_param <float>`__: a (shape) parameter of prior gamma distribution (default value: 0.0881)  
-* __`--b_param <float>`__: b (scale) parameter of prior gamma distribution (default value: 0.2541)
-* __`--file-name-custom <string>`__: customize ending of file name (default: no extra characters in file name) 
+* __`--num_sims <int>`__ number of simulations  (default value: 10000)
+* __`--a_param <float>`__ a (shape) parameter of prior gamma distribution (default value: 0.0881)  
+* __`--b_param <float>`__ b (scale) parameter of prior gamma distribution (default value: 0.2541)
+* __`--file-name-custom <string>`__ customize ending of file name (default: no extra characters in file name) 
 
 ### Output file format:
 The output file will be a tab delimited file with 2 columns: s (s value used), freqs (corresponding allele frequencies)  
@@ -58,13 +58,13 @@ python LRT_lookup.py \
 ```
 
 Required parameters:  
-* __`--out-folder <string>`__: path to folder to which to output lookup table
-* __`--per <int>`__: period (repeat unit length) -> Note: SISTR currently only handles TRs with repeat unit lengths 2-4 bp  
-* __`--opt-allele <int>`__: optimal allele   
-* __`s_vals <string>`__: list of s values, separated by commas, for which to generate lookup table 
+* __`--out-folder <string>`__ path to folder to which to output lookup table
+* __`--per <int>`__ period (repeat unit length) -> Note: SISTR currently only handles TRs with repeat unit lengths 2-4 bp  
+* __`--opt-allele <int>`__ optimal allele   
+* __`s_vals <string>`__ list of s values, separated by commas, for which to generate lookup table 
 
 Optional parameters (default values are those used in Mitra, et. al. 2020):
-* __`--num_sims <int>`__: number of simulations per s value (default: 2000)
+* __`--num_sims <int>`__ number of simulations per s value (default: 2000)
 * __`--file-name-custom <string>`__ customize ending of file name (default: no extra characters in file name)  
 Note: __`--file-name-custom _zero`__ is required when generating lookup table for s = 0
 
