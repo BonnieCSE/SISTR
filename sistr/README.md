@@ -1,28 +1,30 @@
 # Running SISTR
 
 ## Note: Before running SISTR, lookup tables must first be generated. 
-Custom lookup tables can be created by the user (see `simulations/` for further details) or the user may use the available lookup tables found here (used in Mitra, et. al. 2020): https://drive.google.com/drive/folders/1g70y6z6sU5DVpF6ZGzosNDVFFoXxnqmn?usp=sharing
+You may either create your own custom lookup tables (see `simulations/` for further details) or use the available lookup tables found here (used in Mitra, et. al. 2020): https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing
+
+If you wish to use these pre-generated lookup tables, we recommend that you download the entire folder `sistr_resources` and save it at the same directory level as the `simulations` and `sistr` folders.  
 
 ## SISTR Usage
 Example command:
 ```
 python SISTR_v1.py \
-     --inFile allele_freqs_test.txt \
-     --outFile test_results.txt 
+     --in-file allele_freqs_test.txt \
+     --out-file test_results.txt 
 ```
 
 Required parameters:  
-* `--inFile` name of input file containing allele frequency data (see below for format specifications)  
-* `--outFile` name of output file 
+* `--in-file <string>` name of input file containing allele frequency data (see below for format specifications)  
+* `--out-file <string>` name of output file 
 
 Optional parameters (default values are those used in Mitra, et. al. 2020):
-* `--eps-het-numerator` constant in numerator for heterozygosity error tolerance formula (default value: 0.005) 
-* `--eps-het-denominator` constant in denominator for heterozygosity error tolerance formula (default value: 3)
-* `--eps_bins` error tolerance for bins summary statistic (default value: 0.3)
-* `--num_bins` number of bins to use (default value: 5)
-* `--lrt_num_sims`: number of simulations used to generate LRT lookup tables (default value: 2000) 
-* `--abc-lookup-folder` path to folder containing ABC lookup tables (default path: `./../lookup_tables/abc/`)
-* `--lrt-lookup-folder` path to folder containing LRT lookup tables (default path: `./../lookup_tables/lrt/`)
+* `--eps-het-numerator <float>` constant in numerator for heterozygosity error tolerance formula (default value: 0.005) 
+* `--eps-het-denominator <int>` constant in denominator for heterozygosity error tolerance formula (default value: 3)
+* `--eps-bins <float>` error tolerance for bins summary statistic (default value: 0.3)
+* `--num-bins <int>` number of bins to use (default value: 5)
+* `--lrt-num-sims <int>`: number of simulations used to generate LRT lookup tables (default value: 2000) 
+* `--abc-lookup-folder <string>` path to folder containing ABC lookup tables (default path: `./../sistr_resources/abc_lookup/`)
+* `--lrt-lookup-folder <string>` path to folder containing LRT lookup tables (default path: `./../sistr_resources/lrt_lookup/`)
 
 ## Input file format:
 The input file should be a tab delimited file with 7 columns: chrom, start, end, allele_freqs, total, period, motif  
@@ -39,7 +41,7 @@ See example input file `allele_freqs_test.txt`.
 * motif: repeat motif  
 
 Note: Required format for allele frequency data  
-Data for each allele present in the population is represented by two numbers separated by a colon. The first number is the allele size in base pairs relative to the reference allele size (which is calculated as `end - start + 1`). The second number is the number of copies of the allele in the population. Each allele is separated by a comma.  
+Data for each allele present in the population is represented by two numbers separated by a colon. The first number is the allele size in base pairs relative to a reference allele size (which is calculated as `end - start + 1`). The second number is the number of copies of the allele in the population. Each allele is separated by a comma.  
    
 Example: 
 | chrom | start | end | allele_freqs | total | period | motif |

@@ -9,28 +9,6 @@ import copy
 
 ########## Simulation Helper Functions ##########
 
-### Get bins summary statistic ###
-def GetBins(allele_freqs, num_bins):
-    
-    bins = [0] * num_bins # List of binned allele frequencies
-   
-    middle_index = int(len(allele_freqs)/2)
-    
-    boundary_low = middle_index - int((num_bins - 1)/2) # Everything below boundary_low is combined together into a bin
-    bins[0] = sum(allele_freqs[0:boundary_low + 1])
-    
-    boundary_high = middle_index + int((num_bins - 1)/2) # Everything above boundary_high is combined together into a bin
-    bins[num_bins - 1] = sum(allele_freqs[boundary_high:len(allele_freqs)])
-    
-    bins_index = 1
-    
-    # Fill in rest of the bins between lower and upper boundary
-    for i in range(boundary_low + 1, boundary_high):
-        bins[bins_index] = allele_freqs[i]
-        bins_index = bins_index + 1
-                           
-    return bins
-
 def GetStepSizeProb(a1, a2, beta, p):
     step_size = (a2-a1)
     up_prob = max([0.01,0.5*(1-beta*p*a1)]) # Minimum value is 0.01

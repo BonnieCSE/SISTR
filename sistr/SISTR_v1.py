@@ -1,5 +1,5 @@
-# Script to run SISTR: 
-# A method to obtain a posterior estimate of s and corresponding p value for each STR
+# Script to run SISTR version 1: 
+# A method to obtain a posterior estimate of s and corresponding p value for each STR given allele frequency data
 
 # Imports 
 from scipy.stats import geom
@@ -10,7 +10,7 @@ from LRT_functions import *
 ### Main function ###
 def main():
     
-    # Load parameters
+    # Load arguments from command line
     parser = argparse.ArgumentParser()
     
     parser.add_argument("--eps-het-numerator", type=float, default=0.005)
@@ -18,10 +18,10 @@ def main():
     parser.add_argument("--eps-bins", type=float, default=0.3)
     parser.add_argument("--num-bins", type=int, default=5)
     parser.add_argument("--lrt-num-sims", type=int, default=2000)
-    parser.add_argument("--abc-lookup-folder", default = './../lookup_tables/abc/')
-    parser.add_argument("--lrt-lookup-folder", default = './../lookup_tables/lrt/')
-    parser.add_argument("--inFile")
-    parser.add_argument("--outFile")
+    parser.add_argument("--abc-lookup-folder", default = './../sistr_resources/abc_lookup/')
+    parser.add_argument("--lrt-lookup-folder", default = './../sistr_resources/lrt_lookup/')
+    parser.add_argument("--in-file")
+    parser.add_argument("--out-file")
     
     args = parser.parse_args()
     
@@ -33,9 +33,9 @@ def main():
     use_bins = 'y'
         
     # Open input and output files
-    allele_freqs_file = open(args.inFile, 'r')
+    allele_freqs_file = open(args.in_file, 'r')
     header = allele_freqs_file.readline().strip().split('\t')
-    results = open(args.outFile, "w")
+    results = open(args.out_file, "w")
 
     # Write results header
     results.write("chrom" + "\t" + "start" + "\t" + "end" + "\t" + "total" + "\t" + "period" + \
