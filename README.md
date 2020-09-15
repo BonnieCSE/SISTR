@@ -9,7 +9,7 @@ For questions on SISTR usage or setup, please contact Bonnie Huang (bbhuang@ucsd
 SISTR uses Python3 and the following libraries in addition to the Python Standard Library: SciPy, NumPy
 
 # Pipeline
-1. The first step is a preprocessing step which involves simulating allele frequencies to generate lookup tables used later in step 2. **Due to the long compute time required to generate the lookup tables, we recommend using the following precomputed tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it in the the same directory level as the `simulations/` and `sistr/` folders.** However, if you wish to create your own custom lookup tables, see `simulations/` for further details. 
+1. The first step is a preprocessing step which involves simulating allele frequencies to generate lookup tables used later in step 2. **Due to the compute time required to generate the lookup tables, we recommend using the following precomputed tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it in the the same directory level as the `simulations/` and `sistr/` folders.** However, if you wish to create your own custom lookup tables, see `simulations/` for further details. 
    
    Example command to run simulations to generate a custom ABC lookup table:    
    ```
@@ -20,7 +20,7 @@ SISTR uses Python3 and the following libraries in addition to the Python Standar
      --num-sims 5
    ```
 
-2. The second step is to run SISTR, which requires (1) allele frequency data and (2) lookup tables generated in step 1 as input. It outputs a posterior estimate of the selection coefficient at each locus. 
+2. The second step is to run SISTR, which requires (1) allele frequency data and (2) the lookup tables generated in step 1 as input. It outputs a posterior estimate of the selection coefficient at each locus. 
 
    See `sistr/` for further details.
 

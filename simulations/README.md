@@ -1,6 +1,6 @@
 # Running simulations to generate lookup tables
 
-**Note: Due to the long compute time required to generate the lookup tables, we recommend downloading the tables used in Mitra et. al. 2020, which are available for community use and can be found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing)**
+**Note: Due to the compute time required to generate the lookup tables, we recommend downloading the tables used in Mitra et. al. 2020, which are available for community use and can be found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing).**
 
 ## Command to generate an ABC lookup table  
 Note: If you choose to generate your own lookup tables, you must generate 23 ABC lookup tables, one for each period/optimal allele combination below.    
@@ -16,7 +16,7 @@ python ABC_lookup.py \
 ```
 
 Required parameters:  
-* __`--out-folder <string>`__ path to folder to which to output lookup table
+* __`--out-folder <string>`__ path to an existing folder to which to output lookup table
 * __`--per <int>`__ period (repeat unit length) -> Note: SISTR currently only handles TRs with repeat unit lengths 2-4 bp  
 * __`--opt-allele <int>`__ optimal allele   
 
@@ -30,10 +30,10 @@ Optional parameters (default values are those used in Mitra, et. al. 2020):
 ### Output file format:
 The output file will be a tab delimited file with 2 columns: s (s value used), freqs (corresponding allele frequencies)  
 Each row is a separate simulation.  
-The file is named in the format per_opt-allele.txt  
+The file is named in the format \[per\]_\[opt-allele\].txt  
 
 ## Command to generate a LRT lookup table  
-Note: If you want to generate your own lookup tables, you must generate 46 LRT lookup tables, two for each period/optimal allele combination below. One lookup table contains a variety of s values from 0 to 1 inclusive, while the other table only contains information regarding s = 0.  
+Note: If you choose to generate your own lookup tables, you must generate 46 LRT lookup tables, two for each period/optimal allele combination below. One lookup table contains a variety of s values from 0 to 1 inclusive, while the other table only contains information regarding s = 0.  
 List of optimal alleles per period to simulate: period 2, optimal alleles 11-20; period 3, optimal alleles 5-13; period 4, optimal alleles 7-10  
 
 Example command for lookup table with a variety of s values:
@@ -58,10 +58,10 @@ python LRT_lookup.py \
 ```
 
 Required parameters:  
-* __`--out-folder <string>`__ path to folder to which to output lookup table
+* __`--out-folder <string>`__ path to an existing folder to which to output lookup table
 * __`--per <int>`__ period (repeat unit length) -> Note: SISTR currently only handles TRs with repeat unit lengths 2-4 bp  
 * __`--opt-allele <int>`__ optimal allele   
-* __`s_vals <string>`__ list of s values, separated by commas, for which to generate lookup table 
+* __`--s_vals <string>`__ list of s values, separated by commas, for which to generate lookup table 
 
 Optional parameters (default values are those used in Mitra, et. al. 2020):
 * __`--num_sims <int>`__ number of simulations per s value (default: 2000)
@@ -72,4 +72,4 @@ Note: The flag __`--file-name-custom _zero`__ is required when generating a look
 ### Output files:
 The output will be a tab delimited file with 2 columns: s (s value used), freqs (num-sims allele frequencies seqparated by semicolons)  
 Each row is a separate s value.  
-The file is named in the format per_opt-allelefile-name-custom_freqs.txt
+The file is named in the format \[per\]_\[opt-allele\]\[file-name-custom\]_freqs.txt
