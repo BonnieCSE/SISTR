@@ -2,9 +2,9 @@
 # A method to obtain a posterior estimate of s and corresponding p value for each STR given allele frequency data
 
 # Imports 
-from scipy.stats import geom
 import copy
 import argparse
+from scipy.stats import geom
 from LRT_functions import *
 
 ### Main function ###

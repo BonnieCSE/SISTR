@@ -15,6 +15,7 @@ def main():
     parser.add_argument("--opt-allele", type=int)
     parser.add_argument("--num-sims", type=int, default=2000)
     parser.add_argument("--s-vals")
+    parser.add_argument("--num-gens", type=int, default=55920)
     parser.add_argument("--file-name-custom", default='')
     parser.add_argument("--use-var-gens", default = 'n')
     
@@ -45,7 +46,7 @@ def main():
 
     num_alleles = 25
     N_e = 7310
-    max_iter = 55920
+    max_iter = args.num_gens
     end_samp_n = 6500
     
     # Get list of TMRCA values and put in TMRCA_list
