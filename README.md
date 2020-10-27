@@ -3,6 +3,8 @@ SISTR is a method to measure negative selection at short tandem repeats.
 
 It takes allele frequency data (per-locus frequencies of each allele length) as input and outputs a posterior estimate of the selection coefficient at each locus.  
 
+Preprint: https://www.biorxiv.org/content/10.1101/2020.03.04.974170v2
+
 For questions on SISTR usage or setup, please contact Bonnie Huang (bbhuang@ucsd.edu)  
 
 # Installation
