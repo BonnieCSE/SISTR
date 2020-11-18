@@ -1,4 +1,5 @@
-# This file contains helper functions for performing ABC
+# This file contains helper functions for performing ABC (approximate Bayesian computation) in SISTR
+# to obtain a posterior distribution of s (selection coefficient) for each locus.
 
 ########## Imports ##########
 
@@ -7,7 +8,7 @@ import numpy as np
 
 ########## ABC Helper Functions ##########
 
-### Get bins summary statistic ###
+### Get bins of allele frequencies summary statistic ###
 def GetBins(allele_freqs, num_bins):
     
     bins = [0] * num_bins # List of binned allele frequencies
@@ -30,7 +31,7 @@ def GetBins(allele_freqs, num_bins):
     return bins
 
 ### Get summary statistics ###
-# Return heterozygosity, number of common alleles, obs_bins (if num_bins > 0)
+# Return heterozygosity, number of common alleles, bins of allele frequencies (if num_bins > 0)
 def GetSummStats(freq_string, num_bins):
     allele_freqs = [float(freq) for freq in freq_string.split(',')]
     obs_het = 1-sum([item**2 for item in allele_freqs])
@@ -60,7 +61,7 @@ def GetVar(allele_freqs):
 
     return np.dot(allele_freqs, difference)
 
-### Process freqs ###
+### Process allele frequencies ###
 # Return optimal allele repeat units, allele frequencies
 def Process_Freqs(freqs, per, end, start, return_freqs=True):
     # Process freqs
@@ -94,9 +95,11 @@ def Process_Freqs(freqs, per, end, start, return_freqs=True):
         return opt_allele
     
     else:
+        
         # Get allele frequencies
         freqs_dic_final = {}
         allele_list = []
+        
         for allele in freqs_dic:
             new_allele = allele - opt_allele_rel
             freqs_dic_final[new_allele] = freqs_dic[allele]
@@ -113,12 +116,12 @@ def Process_Freqs(freqs, per, end, start, return_freqs=True):
 
         return opt_allele, allele_freqs
 
-### Get epsilon for heterozygosity ###
+### Get epsilon (error tolerance) for heterozygosity ###
 def GetEpsilonHet(obs_het, constant_het, denom_het):
     epsilon = (obs_het + constant_het)/denom_het
     return epsilon
 
-### Get epsilon for number of common alleles ###
+### Get epsilon (error tolerance) for number of common alleles ###
 def GetEpsilonCommon(obs_common, constant_common, denom_common):
     epsilon = obs_common/denom_common + constant_common
     return math.floor(epsilon)
@@ -146,6 +149,7 @@ def GetABCList(abcFile, num_bins):
             stats_list = [s, het, common]
             abc_list.append(stats_list)
      
+    # Get bins summary statistic
     else:
         # Get column number of freqs column in file
         freqs_column = 0
@@ -175,10 +179,14 @@ def Get_S_ABC(abc_list, obs_het, obs_common, obs_bins, constant_het,
               use_common, use_bins):
     
     s_accepted = []
+    
+    # Get error tolerances to use when comparing summary statistics
     EPSILON_het = GetEpsilonHet(obs_het, constant_het, denom_het)
     EPSILON_common = GetEpsilonCommon(obs_common, constant_common, denom_common)
     EPSILON_bins = eps_bins
   
+    # List of summary statistics to use 
+    # (indicated by 0, 1, and 2 for heterozygosity, number of common alleles, allele frequency bins respectively)
     stats_to_check = []
     
     if use_het == 'y':
@@ -199,6 +207,7 @@ def Get_S_ABC(abc_list, obs_het, obs_common, obs_bins, constant_het,
         if GetVectorDistance(obs_bins, combo[3]) < EPSILON_bins:
             stats[2] = True
             
+        # Check whether to accept s
         append = True
         for elem in stats_to_check:
             if stats[elem] == False:
@@ -208,27 +217,11 @@ def Get_S_ABC(abc_list, obs_het, obs_common, obs_bins, constant_het,
          
     num_accepted = len(s_accepted)
     
+    # Get posterior estimate of s along with 95% CI
     if num_accepted >= 10:
         median_s = np.median(s_accepted)
         lower_bound = np.percentile(s_accepted, 2.5) 
         upper_bound = np.percentile(s_accepted, 97.5) 
-        
-        # Comment out rounding
-        '''
-        if median_s < 10**-5:
-            median_s = 0
-        else:
-            median_s = round(median_s, 5)
-        
-        if lower_bound < 10**-5:
-            lower_bound = 0
-        else:
-            lower_bound = round(lower_bound, 5)
-        if upper_bound < 10**-5:
-            upper_bound = 0
-        else:
-            upper_bound = round(upper_bound, 5)
-        '''
         return median_s, lower_bound, upper_bound, num_accepted, s_accepted
     
     else:

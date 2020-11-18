@@ -1,4 +1,5 @@
-# This file contain helper functions for performing LRT
+# This file contains helper functions for performing the likelihood ratio test (LRT) for SISTR
+# to test whether a model with selection fits better than a model without selection.
 
 ########## Imports ##########
 
@@ -99,7 +100,7 @@ def GetLRTListFreq(lrtFile, s_ABC):
             lrt_file.close()
             return freqs_list
        
-       
+    # Return empty list if given s value is not found in file
     lrt_file.close()
     freqs_list = []
     return freqs_list
@@ -122,7 +123,7 @@ def GetLRTListFreq200(lrtFile, s_ABC, return_first_200=True):
             else:
                 return freqs_list[200:400]
        
-       
+    # Return empty list if given s value is not found in file
     lrt_file.close()
     freqs_list = []
     return freqs_list
@@ -145,6 +146,7 @@ def GetLRTListByRow(lrtFile, row_num):
         else:
             i = i + 1
        
+    # Return empty list if given s value is not found in file
     lrt_file.close()
     freqs_list = []
     return freqs_list
@@ -154,11 +156,15 @@ def GetLikelihoodFromTable(lookup_table_het, lookup_table_common, lookup_table_b
                            obs_het, obs_common, obs_bins, constant_het, denom_het, constant_common, \
                            denom_common, eps_bins, use_het, use_common, use_bins):
     
+    # Get error tolerances to use when comparing summary statistics
     EPSILON_het = GetEpsilonHet(obs_het, constant_het, denom_het)
     EPSILON_common = GetEpsilonCommon(obs_common, constant_common, denom_common)
     EPSILON_bins = eps_bins
+    
     num_accepted = 0
     
+    # List of summary statistics to use 
+    # (indicated by 0, 1, and 2 for heterozygosity, number of common alleles, allele frequency bins respectively)
     stats_to_check = []
     
     if use_het == 'y':
@@ -178,6 +184,7 @@ def GetLikelihoodFromTable(lookup_table_het, lookup_table_common, lookup_table_b
         if GetVectorDistance(lookup_table_bins[i], obs_bins) < EPSILON_bins:
             stats[2] = True
             
+        # Check whether to accept s
         append = True
         for elem in stats_to_check:
             if stats[elem] == False:
@@ -196,23 +203,24 @@ def LikelihoodRatioTest(LRT_table_0_het, LRT_table_s_het, LRT_table_0_common, LR
                         obs_bins, constant_het, denom_het, constant_common, denom_common, eps_bins, \
                         use_het, use_common, use_bins):
     
-    # Get likelihood s = 0 and s = ABC_s
+    # Get likelihood s = 0 
     likelihood_0 = GetLikelihoodFromTable(LRT_table_0_het, LRT_table_0_common, LRT_table_0_bins, \
                                           LRT_num_sims, obs_het, obs_common, obs_bins, constant_het, \
                                           denom_het, constant_common, denom_common, eps_bins, use_het, \
                                           use_common, use_bins)
    
+    # Get likelihood s = ABC_s
     likelihood_s_ABC = GetLikelihoodFromTable(LRT_table_s_het, LRT_table_s_common, LRT_table_s_bins, \
                                               LRT_num_sims, obs_het, obs_common, obs_bins, constant_het, \
                                               denom_het, constant_common, denom_common, eps_bins, use_het, \
                                               use_common, use_bins)
      
+    # Calculate likelihood ratio
     LR = likelihood_0/likelihood_s_ABC
    
     # Calculate LogLR 
     LogLR = -2*np.log(LR)
   
     # LogLR ~ Mixture distribution (50% 0, 50% Chi-square (df=1))
-    #pval = chi2.sf(LogLR, 1) 
     pval = 0.5*SF(LogLR) + 0.5*chi2.sf(LogLR, 1)
     return likelihood_0, likelihood_s_ABC, LR, LogLR, pval
