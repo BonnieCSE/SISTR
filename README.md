@@ -1,7 +1,9 @@
 # SISTR: Selection Inference on Short Tandem Repeats 
 SISTR is a method to measure negative selection at short tandem repeats.  
 
-It takes allele frequency data (per-locus frequencies of each allele length) as input and outputs a posterior estimate of the selection coefficient at each locus.  
+It takes allele frequency data (per-locus frequencies of each allele length) as input and outputs a posterior estimate of the selection coefficient at each locus. 
+
+[![DOI](https://zenodo.org/badge/294813574.svg)](https://zenodo.org/badge/latestdoi/294813574)
 
 Preprint: https://www.biorxiv.org/content/10.1101/2020.03.04.974170v2
 
