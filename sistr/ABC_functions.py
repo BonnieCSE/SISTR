@@ -63,7 +63,7 @@ def GetVar(allele_freqs):
 
 ### Process allele frequencies ###
 # Return optimal allele repeat units, allele frequencies
-def Process_Freqs(freqs, per, end, start, return_freqs=True):
+def Process_Freqs(freqs, per, end, start, return_freqs=True, motif=False):
     # Process freqs
     freqs_list = freqs.split(',')
 
@@ -71,7 +71,15 @@ def Process_Freqs(freqs, per, end, start, return_freqs=True):
     freqs_dic = {}
     
     for pair in freqs_list:
-        allele = int(pair.split(':')[0])
+        # Processing allele frequencies in non-motif (alternate) format
+        if motif == False:
+            allele = int(pair.split(':')[0])
+            
+        # Processing allele frequencies in motif format
+        
+        else:
+            allele = pair.split(':')[0]
+            allele = len(allele)
         freq = int(pair.split(':')[1])
         freqs_dic[int(allele/per)] = freq
         
@@ -85,11 +93,14 @@ def Process_Freqs(freqs, per, end, start, return_freqs=True):
     opt_allele_rel = max(freqs_dic, key=freqs_dic.get)
 
     # Get info about reference allele (length in base pairs, repeat units)
-    ref_length_bp = end - start + 1
-    ref_length_ru = int(ref_length_bp/per)
-
     # Get optimal allele repeat unit length 
-    opt_allele = ref_length_ru + opt_allele_rel
+    if motif == False:
+        ref_length_bp = end - start + 1
+        ref_length_ru = int(ref_length_bp/per)
+        opt_allele = ref_length_ru + opt_allele_rel
+                         
+    else:
+        opt_allele = opt_allele_rel                
     
     if return_freqs == False:
         return opt_allele

@@ -22,6 +22,7 @@ def main():
     parser.add_argument("--lrt-lookup-folder", default = 'sistr_resources/lrt_lookup/')
     parser.add_argument("--in-file")
     parser.add_argument("--out-file")
+    parser.add_argument("--motif-format", action="store_true")
     
     args = parser.parse_args()
     
@@ -76,7 +77,11 @@ def main():
         motif = info[6]
 
         # Get optimal allele and allele_freqs
-        opt_allele, allele_freqs = Process_Freqs(freqs, per, end, start)
+        if args.motif_format == True:
+            opt_allele, allele_freqs = Process_Freqs(freqs, per, end, start, True, True)
+        else:
+            opt_allele, allele_freqs = Process_Freqs(freqs, per, end, start, True)
+            
         freq_string = ','.join(str(round(item, 5)) for item in allele_freqs)
         
         # Add 0s to allele frequency list if number of alleles less than number of bins
