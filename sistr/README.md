@@ -1,7 +1,7 @@
 # Running SISTR
 
 ## Note: Before running SISTR, lookup tables must first be generated. 
-**We recommend using the available lookup tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it at the same directory where you are running SISTR.** If you wish to create your own custom lookup tables, see `simulations/` for further details. 
+**We recommend using the available lookup tables found [here](https://drive.google.com/drive/folders/1nar_UJ_jyS97J_tV2vnwDgNmqLSQCRkm?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it at the same directory where you are running SISTR.** If you wish to create your own custom lookup tables, see `simulations/` for further details. 
 
 ## SISTR Usage
 Example commands:

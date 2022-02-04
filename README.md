@@ -20,7 +20,7 @@ cd SISTR
 ```
 
 # Pipeline
-1. The first step is a preprocessing step which involves simulating allele frequencies to generate lookup tables used later in step 2. **Due to the compute time required to generate the lookup tables, we recommend using the following precomputed tables found [here](https://drive.google.com/drive/folders/1p_QoSQ7gzs7hVEwfJyhGMT-ELXZcWoA_?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it in the same directory where you are running SISTR.** However, if you wish to create your own custom lookup tables, see `simulations/` for further details. 
+1. The first step is a preprocessing step which involves simulating allele frequencies to generate lookup tables used later in step 2. **Due to the compute time required to generate the lookup tables, we recommend using the following precomputed tables found [here](https://drive.google.com/drive/folders/1nar_UJ_jyS97J_tV2vnwDgNmqLSQCRkm?usp=sharing) by downloading the entire folder `sistr_resources/` and saving it in the same directory where you are running SISTR.** However, if you wish to create your own custom lookup tables, see `simulations/` for further details. 
    
    Example command to run simulations to generate a custom ABC lookup table:    
    ```
